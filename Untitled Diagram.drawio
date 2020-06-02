@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-06-01T17:47:06.740Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15" etag="5VhWC2sqqIMdJO2j0OLB" version="13.1.12" type="github">
+<mxfile host="app.diagrams.net" modified="2020-06-02T15:13:11.858Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15" etag="a13e-ZKznW38TQbYtmhD" version="13.1.12" type="github">
   <diagram id="PNnLgokY7eEUdojZbYiC" name="Page-1">
     <mxGraphModel dx="1753" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -10,18 +10,15 @@
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-2" value="ID_utilisateur : Integer&lt;br&gt;email : String&lt;br&gt;password : String&lt;br&gt;nom : String&lt;br&gt;prenom : String&lt;br&gt;droit : Integer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="340" y="140" width="170" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z8heLtqB9fBzqsU-6SV7-3">
+        <mxCell id="Z8heLtqB9fBzqsU-6SV7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z8heLtqB9fBzqsU-6SV7-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="240" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z8heLtqB9fBzqsU-6SV7-3">
+        <mxCell id="Z8heLtqB9fBzqsU-6SV7-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z8heLtqB9fBzqsU-6SV7-2">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="580" y="400" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-3" value="getID() : Integer&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="240" width="170" height="50" as="geometry" />
         </mxCell>
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-6" value="etudiant" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="160" y="400" width="160" height="30" as="geometry" />
@@ -32,7 +29,7 @@
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-10" value="enseignant" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="400" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-11" value="cours : ArrayList&amp;lt;String&amp;gt;&lt;br&gt;liste_seance : ArrayList&amp;lt;seance&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Z8heLtqB9fBzqsU-6SV7-11" value="cours_enseignant : ArrayList&amp;lt;cours&amp;gt;&lt;br&gt;liste_seance : ArrayList&amp;lt;seance&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="430" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-12" value="promotion" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -72,13 +69,13 @@
           <mxGeometry x="485" y="700" width="190" height="50" as="geometry" />
         </mxCell>
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-24" value="site" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-530" y="450" width="190" height="30" as="geometry" />
+          <mxGeometry x="-490" y="450" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z8heLtqB9fBzqsU-6SV7-25" target="Z8heLtqB9fBzqsU-6SV7-26">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-25" value="ID_site : Integer&lt;br&gt;nom : String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-530" y="480" width="190" height="50" as="geometry" />
+        <mxCell id="Z8heLtqB9fBzqsU-6SV7-25" value="ID_site : Integer&lt;br&gt;nom : String&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-490" y="480" width="150" height="50" as="geometry" />
         </mxCell>
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-26" value="salle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-450" y="655" width="190" height="30" as="geometry" />
@@ -89,29 +86,8 @@
         <mxCell id="Z8heLtqB9fBzqsU-6SV7-28" value="seance" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="100" y="620" width="235" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-29" value="ID_seance : Integer&lt;br&gt;semaine : Integer&lt;br&gt;jour : date&lt;br&gt;heure_debut : String&lt;br&gt;heure_fin : String&lt;br&gt;etat : Integer&lt;br&gt;liste_salles : ArrayList&amp;lt;salle&amp;gt;&lt;br&gt;liste_groupes : ArrayList&amp;lt;groupe&amp;gt;&lt;br&gt;liste_enseignants : ArrayList&amp;lt;enseignant&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="100" y="650" width="235" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-36" value="seance_groupes" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-230" y="495" width="190" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-38" value="seance_enseignants" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="30" y="500" width="190" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-39" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="30" y="530" width="190" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Z8heLtqB9fBzqsU-6SV7-40" target="Z8heLtqB9fBzqsU-6SV7-41">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-40" value="seance_salles" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-200" y="740" width="190" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-41" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-200" y="770" width="190" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Z8heLtqB9fBzqsU-6SV7-42" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-230" y="525" width="190" height="45" as="geometry" />
+        <mxCell id="Z8heLtqB9fBzqsU-6SV7-29" value="ID_seance : Integer&lt;br&gt;semaine : Integer&lt;br&gt;jour : date&lt;br&gt;heure_debut : String&lt;br&gt;heure_fin : String&lt;br&gt;etat : Integer&lt;br&gt;matiere : cours&lt;br&gt;maniere : type_cours&lt;br&gt;liste_salles : ArrayList&amp;lt;salle&amp;gt;&lt;br&gt;liste_groupes : ArrayList&amp;lt;groupe&amp;gt;&lt;br&gt;liste_enseignants : ArrayList&amp;lt;enseignant&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="650" width="235" height="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
