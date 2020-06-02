@@ -1,0 +1,74 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package timetable_modele;
+
+
+/**
+ *
+ * @author matheocambier
+ */
+public class utilisateur {
+    int ID_utilisateur;
+    String email;
+    String password;
+    String nom;
+    String prenom;
+    int droit;
+
+    public utilisateur(String email, String password, String nom, String prenom, int droit) {
+        this.email = email;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.droit = droit;
+    }
+
+    public int getID_utilisateur() {
+        return ID_utilisateur;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public int getDroit() {
+        return droit;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setDroit(int droit) {
+        this.droit = droit;
+    }
+    
+    
+}
