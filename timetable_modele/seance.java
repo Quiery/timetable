@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package timetable_modele;
-import java.util.*;
-import java.text.*;
+import java.util.ArrayList;
+import java.sql.*;
 
 /**
  *
@@ -15,29 +15,33 @@ public class Seance {
     private int id_seance;
     private int semaine;
     private Date jour;
-    private String heure_debut;
-    private String heure_fin;
+    private Time heure_debut;
+    private Time heure_fin;
     private int etat;
-    private Cours matiere;
-    private Type_cours maniere;
-    private ArrayList<Salle> liste_salles;
-    private ArrayList<Groupe> liste_groupes;
-    private ArrayList<Enseignant> liste_enseignants;
+    private int id_cours;
+    private int id_type_cours;
+    private ArrayList<Integer> liste_salles;
+    private ArrayList<Integer> liste_groupes;
+    private ArrayList<Integer> liste_enseignants;
 
-    public Seance(int semaine, Date jour, String heure_debut, String heure_fin, int etat, Cours matiere, Type_cours maniere, ArrayList<Salle> liste_salles, ArrayList<Groupe> liste_groupes, ArrayList<Enseignant> liste_enseignants) {
+    public Seance(int id_seance, int semaine, Date jour, Time heure_debut, Time heure_fin, int etat, int id_cours, int id_type_cours, ArrayList<Integer> liste_salles, ArrayList<Integer> liste_groupes, ArrayList<Integer> liste_enseignants) {
+        this.id_seance = id_seance;
         this.semaine = semaine;
         this.jour = jour;
         this.heure_debut = heure_debut;
         this.heure_fin = heure_fin;
         this.etat = etat;
-        this.matiere = matiere;
-        this.maniere = maniere;
+        this.id_cours = id_cours;
+        this.id_type_cours = id_type_cours;
         this.liste_salles = liste_salles;
         this.liste_groupes = liste_groupes;
         this.liste_enseignants = liste_enseignants;
     }
 
-    public int getid_seance() {
+
+
+
+    public int getId_seance() {
         return id_seance;
     }
 
@@ -49,77 +53,43 @@ public class Seance {
         return jour;
     }
 
-    public String getHeure_debut() {
-        return heure_debut;
-    }
 
-    public String getHeure_fin() {
-        return heure_fin;
-    }
 
     public int getEtat() {
         return etat;
     }
 
-    public Cours getMatiere() {
-        return matiere;
+    public int getId_cours() {
+        return id_cours;
     }
 
-    public Type_cours getManiere() {
-        return maniere;
+    public int getId_type_cours() {
+        return id_type_cours;
     }
 
-    public ArrayList<Salle> getListe_salles() {
+
+
+    public ArrayList<Integer> getListe_salles() {
         return liste_salles;
     }
 
-    public ArrayList<Groupe> getListe_groupes() {
+    public ArrayList<Integer> getListe_groupes() {
         return liste_groupes;
     }
 
-    public ArrayList<Enseignant> getListe_enseignants() {
+    public ArrayList<Integer> getListe_enseignants() {
         return liste_enseignants;
     }
 
-    public void setSemaine(int semaine) {
-        this.semaine = semaine;
+    public Time getHeure_debut() {
+        return heure_debut;
     }
 
-    public void setJour(Date jour) {
-        this.jour = jour;
+    public Time getHeure_fin() {
+        return heure_fin;
     }
 
-    public void setHeure_debut(String heure_debut) {
-        this.heure_debut = heure_debut;
-    }
-
-    public void setHeure_fin(String heure_fin) {
-        this.heure_fin = heure_fin;
-    }
-
-    public void setEtat(int etat) {
-        this.etat = etat;
-    }
-
-    public void setMatiere(Cours matiere) {
-        this.matiere = matiere;
-    }
-
-    public void setManiere(Type_cours maniere) {
-        this.maniere = maniere;
-    }
-
-    public void setListe_salles(ArrayList<Salle> liste_salles) {
-        this.liste_salles = liste_salles;
-    }
-
-    public void setListe_groupes(ArrayList<Groupe> liste_groupes) {
-        this.liste_groupes = liste_groupes;
-    }
-
-    public void setListe_enseignants(ArrayList<Enseignant> liste_enseignants) {
-        this.liste_enseignants = liste_enseignants;
-    }
+    
     
     
 }

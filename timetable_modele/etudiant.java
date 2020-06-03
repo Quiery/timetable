@@ -11,28 +11,33 @@ package timetable_modele;
  */
 public class Etudiant extends Utilisateur {
     private int numero;
-    private Groupe td;
+    private int id_groupe;
 
-    public Etudiant(int numero, Groupe td, String email, String password, String nom, String prenom, int droit) {
-        super(email, password, nom, prenom, droit);
-        this.numero = numero;
-        this.td = td;
+    public Etudiant() {
     }
+
+    public Etudiant(int numero, int id_groupe, int id_utilisateur, String email, String password, String nom, String prenom, int droit) {
+        super(id_utilisateur, email, password, nom, prenom, droit);
+        this.numero = numero;
+        this.id_groupe = id_groupe;
+    }
+
+    
 
     public int getNumero() {
         return numero;
     }
 
-    public Groupe getTd() {
-        return td;
+    public int getId_groupe() {
+        return id_groupe;
     }
 
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public void setTd(Groupe td) {
-        this.td = td;
+    public void setid_groupe(int id_groupe) {
+        this.id_groupe = id_groupe;
     }
 
     

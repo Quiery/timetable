@@ -13,16 +13,30 @@ import java.util.*;
 public class Groupe {
     private int id_groupe;
     private String nom;
-    private ArrayList<Etudiant> liste_etudiant;
-    private ArrayList<Seance> liste_seance;
+    private int id_promotion;
+    private ArrayList<Integer> liste_etudiant;
+    private ArrayList<Integer> liste_seance;
 
-    public Groupe(String nom, ArrayList<Etudiant> liste_etudiant, ArrayList<Seance> liste_seance) {
+    public Groupe(int id_groupe, String nom, int id_promotion, ArrayList<Integer> liste_etudiant, ArrayList<Integer> liste_seance) {
+        this.id_groupe = id_groupe;
         this.nom = nom;
+        this.id_promotion = id_promotion;
         this.liste_etudiant = liste_etudiant;
         this.liste_seance = liste_seance;
     }
 
-    public int getid_groupe() {
+    
+
+    public Groupe() {
+    }
+
+    public int getId_promotion() {
+        return id_promotion;
+    }
+    
+    
+
+    public int getId_groupe() {
         return id_groupe;
     }
 
@@ -30,11 +44,11 @@ public class Groupe {
         return nom;
     }
 
-    public ArrayList<Etudiant> getListe_etudiant() {
+    public ArrayList<Integer> getListe_etudiant() {
         return liste_etudiant;
     }
 
-    public ArrayList<Seance> getListe_seance() {
+    public ArrayList<Integer> getListe_seance() {
         return liste_seance;
     }
 
@@ -42,11 +56,11 @@ public class Groupe {
         this.nom = nom;
     }
 
-    public void setListe_etudiant(ArrayList<Etudiant> liste_etudiant) {
+    public void setListe_etudiant(ArrayList<Integer> liste_etudiant) {
         this.liste_etudiant = liste_etudiant;
     }
 
-    public void setListe_seance(ArrayList<Seance> liste_seance) {
+    public void setListe_seance(ArrayList<Integer> liste_seance) {
         this.liste_seance = liste_seance;
     }
     

@@ -14,9 +14,15 @@ public class Type_cours {
     private int id_type_cours;
     private String nom;
 
-    public Type_cours(String nom) {
+    public Type_cours() {
+    }
+
+    public Type_cours(int id_type_cours, String nom) {
+        this.id_type_cours = id_type_cours;
         this.nom = nom;
     }
+
+    
 
     public int getid_type_cours() {
         return id_type_cours;

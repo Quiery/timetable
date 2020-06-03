@@ -13,14 +13,20 @@ import java.util.*;
 public class Promotion {
     private int id_promotion;
     private String nom;
-    private ArrayList<Groupe> liste_groupes;
+    private ArrayList<Integer> liste_groupes;
 
-    public Promotion(String nom, ArrayList<Groupe> liste_groupes) {
+    public Promotion(int id_promotion, String nom, ArrayList<Integer> liste_groupes) {
+        this.id_promotion = id_promotion;
         this.nom = nom;
         this.liste_groupes = liste_groupes;
     }
 
-    public int getid_promotion() {
+    public Promotion() {
+    }
+
+    
+
+    public int getId_promotion() {
         return id_promotion;
     }
 
@@ -28,7 +34,7 @@ public class Promotion {
         return nom;
     }
 
-    public ArrayList<Groupe> getListe_groupes() {
+    public ArrayList<Integer> getListe_groupes() {
         return liste_groupes;
     }
 
@@ -36,7 +42,7 @@ public class Promotion {
         this.nom = nom;
     }
 
-    public void setListe_groupes(ArrayList<Groupe> liste_groupes) {
+    public void setListe_groupes(ArrayList<Integer> liste_groupes) {
         this.liste_groupes = liste_groupes;
     }
     

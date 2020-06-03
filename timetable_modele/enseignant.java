@@ -11,28 +11,33 @@ import java.util.*;
  * @author matheocambier
  */
 public class Enseignant extends Utilisateur{
-    private ArrayList<Cours> liste_cours;
-    private ArrayList<Seance> liste_seances;
+    private ArrayList<Integer> liste_cours;
+    private ArrayList<Integer> liste_seances;
 
-    public Enseignant(ArrayList<Cours> liste_cours, ArrayList<Seance> liste_seances, String email, String password, String nom, String prenom, int droit) {
-        super(email, password, nom, prenom, droit);
+    public Enseignant() {
+    }
+
+    public Enseignant(ArrayList<Integer> liste_cours, ArrayList<Integer> liste_seances, int id_utilisateur, String email, String password, String nom, String prenom, int droit) {
+        super(id_utilisateur, email, password, nom, prenom, droit);
         this.liste_cours = liste_cours;
         this.liste_seances = liste_seances;
     }
 
-    public ArrayList<Cours> getListe_cours() {
+    
+    
+    public ArrayList<Integer> getListe_cours() {
         return liste_cours;
     }
 
-    public ArrayList<Seance> getListe_seances() {
+    public ArrayList<Integer> getListe_seances() {
         return liste_seances;
     }
 
-    public void setListe_cours(ArrayList<Cours> liste_cours) {
+    public void setListe_cours(ArrayList<Integer> liste_cours) {
         this.liste_cours = liste_cours;
     }
 
-    public void setListe_seances(ArrayList<Seance> liste_seances) {
+    public void setListe_seances(ArrayList<Integer> liste_seances) {
         this.liste_seances = liste_seances;
     }
     

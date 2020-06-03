@@ -12,12 +12,23 @@ package timetable_modele;
 public class Salle {
     private int id_salle;
     private String nom;
+    private int id_site;
 
-    public Salle(String nom) {
+    public Salle(int id_salle, String nom, int id_site) {
+        this.id_salle = id_salle;
         this.nom = nom;
+        this.id_site = id_site;
     }
 
-    public int getid_salle() {
+    public Salle() {
+    }
+
+    public int getId_site() {
+        return id_site;
+    }
+
+
+    public int getId_salle() {
         return id_salle;
     }
 

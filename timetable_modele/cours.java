@@ -13,27 +13,23 @@ public class Cours {
     private int id_cours;
     private String nom;
 
-    public Cours(String nom) {
+    public Cours(int id_cours, String nom) {
+        this.id_cours = id_cours;
         this.nom = nom;
     }
 
-    public int getid_cours() {
+    public Cours() {
+    }
+
+    
+
+    public int getId_cours() {
         return id_cours;
     }
 
     public String getNom() {
         return nom;
     }
-
-    public void setid_cours(int id_cours) {
-        this.id_cours = id_cours;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    
-    
 
     
 }
