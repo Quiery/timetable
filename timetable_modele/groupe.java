@@ -10,31 +10,31 @@ import java.util.*;
  *
  * @author matheocambier
  */
-public class groupe {
-    int ID_groupe;
-    String nom;
-    ArrayList<etudiant> liste_etudiant;
-    ArrayList<seance> liste_seance;
+public class Groupe {
+    private int id_groupe;
+    private String nom;
+    private ArrayList<Etudiant> liste_etudiant;
+    private ArrayList<Seance> liste_seance;
 
-    public groupe(String nom, ArrayList<etudiant> liste_etudiant, ArrayList<seance> liste_seance) {
+    public Groupe(String nom, ArrayList<Etudiant> liste_etudiant, ArrayList<Seance> liste_seance) {
         this.nom = nom;
         this.liste_etudiant = liste_etudiant;
         this.liste_seance = liste_seance;
     }
 
-    public int getID_groupe() {
-        return ID_groupe;
+    public int getid_groupe() {
+        return id_groupe;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public ArrayList<etudiant> getListe_etudiant() {
+    public ArrayList<Etudiant> getListe_etudiant() {
         return liste_etudiant;
     }
 
-    public ArrayList<seance> getListe_seance() {
+    public ArrayList<Seance> getListe_seance() {
         return liste_seance;
     }
 
@@ -42,11 +42,11 @@ public class groupe {
         this.nom = nom;
     }
 
-    public void setListe_etudiant(ArrayList<etudiant> liste_etudiant) {
+    public void setListe_etudiant(ArrayList<Etudiant> liste_etudiant) {
         this.liste_etudiant = liste_etudiant;
     }
 
-    public void setListe_seance(ArrayList<seance> liste_seance) {
+    public void setListe_seance(ArrayList<Seance> liste_seance) {
         this.liste_seance = liste_seance;
     }
     

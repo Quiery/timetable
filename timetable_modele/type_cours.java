@@ -9,17 +9,17 @@ package timetable_modele;
  *
  * @author matheocambier
  */
-public class type_cours {
+public class Type_cours {
 
-    int ID_type_cours;
-    String nom;
+    private int id_type_cours;
+    private String nom;
 
-    public type_cours(String nom) {
+    public Type_cours(String nom) {
         this.nom = nom;
     }
 
-    public int getID_type_cours() {
-        return ID_type_cours;
+    public int getid_type_cours() {
+        return id_type_cours;
     }
 
     public String getNom() {

@@ -10,15 +10,15 @@ package timetable_modele;
  *
  * @author matheocambier
  */
-public class utilisateur {
-    int ID_utilisateur;
-    String email;
-    String password;
-    String nom;
-    String prenom;
-    int droit;
+public class Utilisateur {
+    protected int id_utilisateur;
+    protected String email;
+    protected String password;
+    protected String nom;
+    protected String prenom;
+    protected int droit;
 
-    public utilisateur(String email, String password, String nom, String prenom, int droit) {
+    public Utilisateur(String email, String password, String nom, String prenom, int droit) {
         this.email = email;
         this.password = password;
         this.nom = nom;
@@ -26,8 +26,8 @@ public class utilisateur {
         this.droit = droit;
     }
 
-    public int getID_utilisateur() {
-        return ID_utilisateur;
+    public int getid_utilisateur() {
+        return id_utilisateur;
     }
 
     public String getEmail() {

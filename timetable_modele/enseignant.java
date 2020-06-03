@@ -10,29 +10,29 @@ import java.util.*;
  *
  * @author matheocambier
  */
-public class enseignant extends utilisateur{
-    ArrayList<cours> liste_cours;
-    ArrayList<seance> liste_seances;
+public class Enseignant extends Utilisateur{
+    private ArrayList<Cours> liste_cours;
+    private ArrayList<Seance> liste_seances;
 
-    public enseignant(ArrayList<cours> liste_cours, ArrayList<seance> liste_seances, String email, String password, String nom, String prenom, int droit) {
+    public Enseignant(ArrayList<Cours> liste_cours, ArrayList<Seance> liste_seances, String email, String password, String nom, String prenom, int droit) {
         super(email, password, nom, prenom, droit);
         this.liste_cours = liste_cours;
         this.liste_seances = liste_seances;
     }
 
-    public ArrayList<cours> getListe_cours() {
+    public ArrayList<Cours> getListe_cours() {
         return liste_cours;
     }
 
-    public ArrayList<seance> getListe_seances() {
+    public ArrayList<Seance> getListe_seances() {
         return liste_seances;
     }
 
-    public void setListe_cours(ArrayList<cours> liste_cours) {
+    public void setListe_cours(ArrayList<Cours> liste_cours) {
         this.liste_cours = liste_cours;
     }
 
-    public void setListe_seances(ArrayList<seance> liste_seances) {
+    public void setListe_seances(ArrayList<Seance> liste_seances) {
         this.liste_seances = liste_seances;
     }
     

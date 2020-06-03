@@ -10,25 +10,25 @@ import java.util.*;
  *
  * @author matheocambier
  */
-public class promotion {
-    int ID_promotion;
-    String nom;
-    ArrayList<groupe> liste_groupes;
+public class Promotion {
+    private int id_promotion;
+    private String nom;
+    private ArrayList<Groupe> liste_groupes;
 
-    public promotion(String nom, ArrayList<groupe> liste_groupes) {
+    public Promotion(String nom, ArrayList<Groupe> liste_groupes) {
         this.nom = nom;
         this.liste_groupes = liste_groupes;
     }
 
-    public int getID_promotion() {
-        return ID_promotion;
+    public int getid_promotion() {
+        return id_promotion;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public ArrayList<groupe> getListe_groupes() {
+    public ArrayList<Groupe> getListe_groupes() {
         return liste_groupes;
     }
 
@@ -36,7 +36,7 @@ public class promotion {
         this.nom = nom;
     }
 
-    public void setListe_groupes(ArrayList<groupe> liste_groupes) {
+    public void setListe_groupes(ArrayList<Groupe> liste_groupes) {
         this.liste_groupes = liste_groupes;
     }
     

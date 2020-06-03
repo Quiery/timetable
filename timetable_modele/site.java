@@ -9,16 +9,16 @@ package timetable_modele;
  *
  * @author matheocambier
  */
-public class site {
-    int ID_site;
-    String nom;
+public class Site {
+    private int id_site;
+    private String nom;
 
-    public site(String nom) {
+    public Site(String nom) {
         this.nom = nom;
     }
 
-    public int getID_site() {
-        return ID_site;
+    public int getid_site() {
+        return id_site;
     }
 
     public String getNom() {

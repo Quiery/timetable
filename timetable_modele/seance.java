@@ -11,20 +11,20 @@ import java.text.*;
  *
  * @author matheocambier
  */
-public class seance {
-    int ID_seance;
-    int semaine;
-    Date jour;
-    String heure_debut;
-    String heure_fin;
-    int etat;
-    cours matiere;
-    type_cours maniere;
-    ArrayList<salle> liste_salles;
-    ArrayList<groupe> liste_groupes;
-    ArrayList<enseignant> liste_enseignants;
+public class Seance {
+    private int id_seance;
+    private int semaine;
+    private Date jour;
+    private String heure_debut;
+    private String heure_fin;
+    private int etat;
+    private Cours matiere;
+    private Type_cours maniere;
+    private ArrayList<Salle> liste_salles;
+    private ArrayList<Groupe> liste_groupes;
+    private ArrayList<Enseignant> liste_enseignants;
 
-    public seance(int semaine, Date jour, String heure_debut, String heure_fin, int etat, cours matiere, type_cours maniere, ArrayList<salle> liste_salles, ArrayList<groupe> liste_groupes, ArrayList<enseignant> liste_enseignants) {
+    public Seance(int semaine, Date jour, String heure_debut, String heure_fin, int etat, Cours matiere, Type_cours maniere, ArrayList<Salle> liste_salles, ArrayList<Groupe> liste_groupes, ArrayList<Enseignant> liste_enseignants) {
         this.semaine = semaine;
         this.jour = jour;
         this.heure_debut = heure_debut;
@@ -37,8 +37,8 @@ public class seance {
         this.liste_enseignants = liste_enseignants;
     }
 
-    public int getID_seance() {
-        return ID_seance;
+    public int getid_seance() {
+        return id_seance;
     }
 
     public int getSemaine() {
@@ -61,23 +61,23 @@ public class seance {
         return etat;
     }
 
-    public cours getMatiere() {
+    public Cours getMatiere() {
         return matiere;
     }
 
-    public type_cours getManiere() {
+    public Type_cours getManiere() {
         return maniere;
     }
 
-    public ArrayList<salle> getListe_salles() {
+    public ArrayList<Salle> getListe_salles() {
         return liste_salles;
     }
 
-    public ArrayList<groupe> getListe_groupes() {
+    public ArrayList<Groupe> getListe_groupes() {
         return liste_groupes;
     }
 
-    public ArrayList<enseignant> getListe_enseignants() {
+    public ArrayList<Enseignant> getListe_enseignants() {
         return liste_enseignants;
     }
 
@@ -101,23 +101,23 @@ public class seance {
         this.etat = etat;
     }
 
-    public void setMatiere(cours matiere) {
+    public void setMatiere(Cours matiere) {
         this.matiere = matiere;
     }
 
-    public void setManiere(type_cours maniere) {
+    public void setManiere(Type_cours maniere) {
         this.maniere = maniere;
     }
 
-    public void setListe_salles(ArrayList<salle> liste_salles) {
+    public void setListe_salles(ArrayList<Salle> liste_salles) {
         this.liste_salles = liste_salles;
     }
 
-    public void setListe_groupes(ArrayList<groupe> liste_groupes) {
+    public void setListe_groupes(ArrayList<Groupe> liste_groupes) {
         this.liste_groupes = liste_groupes;
     }
 
-    public void setListe_enseignants(ArrayList<enseignant> liste_enseignants) {
+    public void setListe_enseignants(ArrayList<Enseignant> liste_enseignants) {
         this.liste_enseignants = liste_enseignants;
     }
     

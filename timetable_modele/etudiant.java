@@ -9,11 +9,11 @@ package timetable_modele;
  *
  * @author matheocambier
  */
-public class etudiant extends utilisateur {
-    int numero;
-    groupe td;
+public class Etudiant extends Utilisateur {
+    private int numero;
+    private Groupe td;
 
-    public etudiant(int numero, groupe td, String email, String password, String nom, String prenom, int droit) {
+    public Etudiant(int numero, Groupe td, String email, String password, String nom, String prenom, int droit) {
         super(email, password, nom, prenom, droit);
         this.numero = numero;
         this.td = td;
@@ -23,7 +23,7 @@ public class etudiant extends utilisateur {
         return numero;
     }
 
-    public groupe getTd() {
+    public Groupe getTd() {
         return td;
     }
 
@@ -31,7 +31,7 @@ public class etudiant extends utilisateur {
         this.numero = numero;
     }
 
-    public void setTd(groupe td) {
+    public void setTd(Groupe td) {
         this.td = td;
     }
 
