@@ -14,9 +14,11 @@ public class Enseignant extends Utilisateur{
     private ArrayList<Integer> liste_cours;
     private ArrayList<Integer> liste_seances;
 
+
     public Enseignant() {
     }
 
+    
     public Enseignant(ArrayList<Integer> liste_cours, ArrayList<Integer> liste_seances, int id_utilisateur, String email, String password, String nom, String prenom, int droit) {
         super(id_utilisateur, email, password, nom, prenom, droit);
         this.liste_cours = liste_cours;

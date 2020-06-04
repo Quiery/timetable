@@ -18,7 +18,11 @@ public class Utilisateur {
     protected String prenom;
     protected int droit;
 
-    public Utilisateur(String email, String password, String nom, String prenom, int droit) {
+    public Utilisateur() {
+    }
+
+    public Utilisateur(int id_utilisateur, String email, String password, String nom, String prenom, int droit) {
+        this.id_utilisateur = id_utilisateur;
         this.email = email;
         this.password = password;
         this.nom = nom;
@@ -26,7 +30,9 @@ public class Utilisateur {
         this.droit = droit;
     }
 
-    public int getid_utilisateur() {
+    
+
+    public int getId_utilisateur() {
         return id_utilisateur;
     }
 

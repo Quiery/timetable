@@ -13,15 +13,25 @@ public class Salle {
     private int id_salle;
     private String nom;
     private int id_site;
+    private int capacite;
 
-    public Salle(int id_salle, String nom, int id_site) {
+    public Salle(int id_salle, String nom, int id_site, int capacite) {
         this.id_salle = id_salle;
         this.nom = nom;
         this.id_site = id_site;
+        this.capacite = capacite;
     }
+
+    
 
     public Salle() {
     }
+    
+    public int getCapacite() {
+        return capacite;
+    }
+
+    
 
     public int getId_site() {
         return id_site;

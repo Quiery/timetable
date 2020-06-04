@@ -38,6 +38,9 @@ public class Seance {
         this.liste_enseignants = liste_enseignants;
     }
 
+    public Seance() {
+    }
+
 
 
 
