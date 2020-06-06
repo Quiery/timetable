@@ -2,14 +2,12 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 06 juin 2020 à 15:11
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Host: localhost:8889
+-- Generation Time: Jun 03, 2020 at 09:20 AM
+-- Server version: 5.7.25
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,26 +17,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `timetable`
+-- Database: `timetable`
 --
-CREATE DATABASE IF NOT EXISTS `timetable` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `timetable` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `timetable`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cours`
+-- Table structure for table `cours`
 --
 
-DROP TABLE IF EXISTS `cours`;
-CREATE TABLE IF NOT EXISTS `cours` (
-  `ID_cours` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_cours`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `cours` (
+  `ID_cours` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `cours`
+-- Dumping data for table `cours`
 --
 
 INSERT INTO `cours` (`ID_cours`, `nom`) VALUES
@@ -50,23 +46,20 @@ INSERT INTO `cours` (`ID_cours`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `enseignant`
+-- Table structure for table `enseignant`
 --
 
-DROP TABLE IF EXISTS `enseignant`;
-CREATE TABLE IF NOT EXISTS `enseignant` (
+CREATE TABLE `enseignant` (
   `ID_utilisateur` int(11) NOT NULL,
-  `ID_cours` int(11) NOT NULL,
-  PRIMARY KEY (`ID_utilisateur`,`ID_cours`)
+  `ID_cours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `enseignant`
+-- Dumping data for table `enseignant`
 --
 
 INSERT INTO `enseignant` (`ID_utilisateur`, `ID_cours`) VALUES
 (3, 1),
-(3, 2),
 (4, 4),
 (5, 2),
 (6, 3),
@@ -75,53 +68,29 @@ INSERT INTO `enseignant` (`ID_utilisateur`, `ID_cours`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etudiant`
+-- Table structure for table `etudiant`
 --
 
-DROP TABLE IF EXISTS `etudiant`;
-CREATE TABLE IF NOT EXISTS `etudiant` (
+CREATE TABLE `etudiant` (
   `ID_utilisateur` int(11) NOT NULL,
   `numero` int(11) NOT NULL,
-  `ID_groupe` int(11) NOT NULL,
-  PRIMARY KEY (`ID_utilisateur`)
+  `ID_groupe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `etudiant`
---
-
-INSERT INTO `etudiant` (`ID_utilisateur`, `numero`, `ID_groupe`) VALUES
-(7, 1, 1),
-(8, 2, 1),
-(9, 3, 1),
-(10, 4, 2),
-(11, 5, 2),
-(12, 6, 2),
-(13, 7, 2),
-(14, 8, 3),
-(15, 9, 3),
-(16, 10, 3),
-(17, 11, 4),
-(18, 12, 5),
-(19, 13, 6),
-(20, 14, 6);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupe`
+-- Table structure for table `groupe`
 --
 
-DROP TABLE IF EXISTS `groupe`;
-CREATE TABLE IF NOT EXISTS `groupe` (
-  `ID_groupe` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `groupe` (
+  `ID_groupe` int(11) NOT NULL,
   `Nom` varchar(255) NOT NULL,
-  `ID_promotion` int(11) NOT NULL,
-  PRIMARY KEY (`ID_groupe`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `ID_promotion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `groupe`
+-- Dumping data for table `groupe`
 --
 
 INSERT INTO `groupe` (`ID_groupe`, `Nom`, `ID_promotion`) VALUES
@@ -135,18 +104,16 @@ INSERT INTO `groupe` (`ID_groupe`, `Nom`, `ID_promotion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `promotion`
+-- Table structure for table `promotion`
 --
 
-DROP TABLE IF EXISTS `promotion`;
-CREATE TABLE IF NOT EXISTS `promotion` (
-  `ID_promotion` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_promotion`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `promotion` (
+  `ID_promotion` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `promotion`
+-- Dumping data for table `promotion`
 --
 
 INSERT INTO `promotion` (`ID_promotion`, `nom`) VALUES
@@ -157,20 +124,18 @@ INSERT INTO `promotion` (`ID_promotion`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `salle`
+-- Table structure for table `salle`
 --
 
-DROP TABLE IF EXISTS `salle`;
-CREATE TABLE IF NOT EXISTS `salle` (
-  `ID_salle` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `salle` (
+  `ID_salle` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `capacite` int(11) NOT NULL,
-  `ID_site` int(11) NOT NULL,
-  PRIMARY KEY (`ID_salle`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `ID_site` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `salle`
+-- Dumping data for table `salle`
 --
 
 INSERT INTO `salle` (`ID_salle`, `nom`, `capacite`, `ID_site`) VALUES
@@ -184,24 +149,22 @@ INSERT INTO `salle` (`ID_salle`, `nom`, `capacite`, `ID_site`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `seance`
+-- Table structure for table `seance`
 --
 
-DROP TABLE IF EXISTS `seance`;
-CREATE TABLE IF NOT EXISTS `seance` (
-  `ID_seance` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `seance` (
+  `ID_seance` int(11) NOT NULL,
   `semaine` int(11) NOT NULL,
   `date` date NOT NULL,
   `heure_debut` time NOT NULL,
   `heure_fin` time NOT NULL,
   `etat` int(11) NOT NULL,
   `ID_cours` int(11) NOT NULL,
-  `ID_type_cours` int(11) NOT NULL,
-  PRIMARY KEY (`ID_seance`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `ID_type_cours` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `seance`
+-- Dumping data for table `seance`
 --
 
 INSERT INTO `seance` (`ID_seance`, `semaine`, `date`, `heure_debut`, `heure_fin`, `etat`, `ID_cours`, `ID_type_cours`) VALUES
@@ -215,93 +178,49 @@ INSERT INTO `seance` (`ID_seance`, `semaine`, `date`, `heure_debut`, `heure_fin`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `seance_enseignant`
+-- Table structure for table `seance_enseignant`
 --
 
-DROP TABLE IF EXISTS `seance_enseignant`;
-CREATE TABLE IF NOT EXISTS `seance_enseignant` (
+CREATE TABLE `seance_enseignant` (
   `ID_seance` int(11) NOT NULL,
-  `ID_utilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`ID_seance`,`ID_utilisateur`)
+  `ID_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `seance_enseignant`
---
-
-INSERT INTO `seance_enseignant` (`ID_seance`, `ID_utilisateur`) VALUES
-(1, 3),
-(2, 6),
-(3, 6),
-(4, 6),
-(5, 4),
-(6, 4);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `seance_groupes`
+-- Table structure for table `seance_groupes`
 --
 
-DROP TABLE IF EXISTS `seance_groupes`;
-CREATE TABLE IF NOT EXISTS `seance_groupes` (
+CREATE TABLE `seance_groupes` (
   `ID_seance` int(11) NOT NULL,
-  `ID_groupe` int(11) NOT NULL,
-  PRIMARY KEY (`ID_seance`,`ID_groupe`)
+  `ID_groupe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `seance_groupes`
---
-
-INSERT INTO `seance_groupes` (`ID_seance`, `ID_groupe`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 1),
-(6, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `seance_salles`
+-- Table structure for table `seance_salles`
 --
 
-DROP TABLE IF EXISTS `seance_salles`;
-CREATE TABLE IF NOT EXISTS `seance_salles` (
+CREATE TABLE `seance_salles` (
   `ID_seance` int(11) NOT NULL,
-  `ID_salle` int(11) NOT NULL,
-  PRIMARY KEY (`ID_seance`,`ID_salle`)
+  `ID_salle` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `seance_salles`
---
-
-INSERT INTO `seance_salles` (`ID_seance`, `ID_salle`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `site`
+-- Table structure for table `site`
 --
 
-DROP TABLE IF EXISTS `site`;
-CREATE TABLE IF NOT EXISTS `site` (
-  `ID_site` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_site`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `site` (
+  `ID_site` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `site`
+-- Dumping data for table `site`
 --
 
 INSERT INTO `site` (`ID_site`, `nom`) VALUES
@@ -312,18 +231,16 @@ INSERT INTO `site` (`ID_site`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `type_cours`
+-- Table structure for table `type_cours`
 --
 
-DROP TABLE IF EXISTS `type_cours`;
-CREATE TABLE IF NOT EXISTS `type_cours` (
-  `ID_type_cours` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID_type_cours`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+CREATE TABLE `type_cours` (
+  `ID_type_cours` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `type_cours`
+-- Dumping data for table `type_cours`
 --
 
 INSERT INTO `type_cours` (`ID_type_cours`, `nom`) VALUES
@@ -337,22 +254,20 @@ INSERT INTO `type_cours` (`ID_type_cours`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
+-- Table structure for table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `ID_utilisateur` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateur` (
+  `ID_utilisateur` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
-  `droit` int(11) NOT NULL,
-  PRIMARY KEY (`ID_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+  `droit` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Dumping data for table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`ID_utilisateur`, `email`, `password`, `nom`, `prenom`, `droit`) VALUES
@@ -377,7 +292,140 @@ INSERT INTO `utilisateur` (`ID_utilisateur`, `email`, `password`, `nom`, `prenom
 (19, 'romain.perennou@edu.ece.fr', 'roca92', 'Perennou', 'Romain', 4),
 (20, 'clement.mace@edu.ece.fr', 'clemswars', 'Mace', 'Clement', 4),
 (21, 'jean.odages@ece.fr', 'franceioi', 'Odages', 'Jean', 3);
-COMMIT;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cours`
+--
+ALTER TABLE `cours`
+  ADD PRIMARY KEY (`ID_cours`);
+
+--
+-- Indexes for table `enseignant`
+--
+ALTER TABLE `enseignant`
+  ADD PRIMARY KEY (`ID_utilisateur`,`ID_cours`);
+
+--
+-- Indexes for table `etudiant`
+--
+ALTER TABLE `etudiant`
+  ADD PRIMARY KEY (`ID_utilisateur`);
+
+--
+-- Indexes for table `groupe`
+--
+ALTER TABLE `groupe`
+  ADD PRIMARY KEY (`ID_groupe`);
+
+--
+-- Indexes for table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`ID_promotion`);
+
+--
+-- Indexes for table `salle`
+--
+ALTER TABLE `salle`
+  ADD PRIMARY KEY (`ID_salle`);
+
+--
+-- Indexes for table `seance`
+--
+ALTER TABLE `seance`
+  ADD PRIMARY KEY (`ID_seance`);
+
+--
+-- Indexes for table `seance_enseignant`
+--
+ALTER TABLE `seance_enseignant`
+  ADD PRIMARY KEY (`ID_seance`,`ID_utilisateur`);
+
+--
+-- Indexes for table `seance_groupes`
+--
+ALTER TABLE `seance_groupes`
+  ADD PRIMARY KEY (`ID_seance`,`ID_groupe`);
+
+--
+-- Indexes for table `seance_salles`
+--
+ALTER TABLE `seance_salles`
+  ADD PRIMARY KEY (`ID_seance`,`ID_salle`);
+
+--
+-- Indexes for table `site`
+--
+ALTER TABLE `site`
+  ADD PRIMARY KEY (`ID_site`);
+
+--
+-- Indexes for table `type_cours`
+--
+ALTER TABLE `type_cours`
+  ADD PRIMARY KEY (`ID_type_cours`);
+
+--
+-- Indexes for table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`ID_utilisateur`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cours`
+--
+ALTER TABLE `cours`
+  MODIFY `ID_cours` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `groupe`
+--
+ALTER TABLE `groupe`
+  MODIFY `ID_groupe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `promotion`
+--
+ALTER TABLE `promotion`
+  MODIFY `ID_promotion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `salle`
+--
+ALTER TABLE `salle`
+  MODIFY `ID_salle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `seance`
+--
+ALTER TABLE `seance`
+  MODIFY `ID_seance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `site`
+--
+ALTER TABLE `site`
+  MODIFY `ID_site` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `type_cours`
+--
+ALTER TABLE `type_cours`
+  MODIFY `ID_type_cours` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `ID_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
