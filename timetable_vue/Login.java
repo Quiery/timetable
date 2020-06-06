@@ -8,6 +8,10 @@ package timetable_vue;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import timetable_dao.*;
 
 /**
  *
@@ -57,7 +61,7 @@ public class Login extends JFrame implements ActionListener {
         
         titre = new JLabel();
         titre.setText("Bienvenue sur votre emploi du temps ECE Paris");
-        titre.setFont(new Font("Serif",Font.BOLD, 22));
+        titre.setFont(new Font("Serif",Font.BOLD, 18));
         
         presentation = new JPanel();
         presentation.setLayout(new GridLayout(1,2));
@@ -86,40 +90,46 @@ public class Login extends JFrame implements ActionListener {
         add("Center",panel_login);
         add("South", panel_submit);
         
+        
         this.setVisible(true);
     }
-    
-    public DatabaseException(){
-        super();
-    }
+
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-         String mail = user_mail.getText();
-         String password = user_password.getText();
-         int a;
-         UtilisateurDao user = new UtilisateurDao();
-         if (source==submit) {
-            try{
-                a=user.login(mail,password);
-                if(a==0)
-                {
-                    throw new DatabaseException();
+            Connexion co;
+            Object source = e.getSource();
+            String mail = user_mail.getText();
+            String password = user_password.getText();
+            int a;
+            UtilisateurDao user;
+            if (source==submit) {
+                try {
+                    co = new Connexion("timetable","root","");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                else
-                {
-                    this.dispose();
-                    //Fenetre window= new Fenetre(a);
+                user = new UtilisateurDao(co);
+                try{
+                    a=user.login(mail,password);
+                    if(a==0)
+                    {
+                        throw new DatabaseException();
+                    }
+                    else
+                    {
+                        this.dispose();
+                        Window fenetre= new Window(a);
+                    }
+                    
                     
                 }
-                    
-                    
+                catch(DatabaseException j){
+                    System.out.println("Utilisateur introuvable");
+                }
             }
-            catch(DatabaseException j){
-                System.out.println("Utilisateur introuvable");
-            }
-         }
     }
 }
 
