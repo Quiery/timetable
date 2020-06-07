@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-06-07T17:34:48.831Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15" etag="YAZf6tlBiVgRF8fFeXdY" version="13.1.14" type="github">
+<mxfile host="app.diagrams.net" modified="2020-06-07T17:36:17.325Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Safari/605.1.15" etag="B9cD5-6qmwuuAN8Zoi5y" version="13.1.14" type="github">
   <diagram id="NadBYorUnw0uhQrt5Yt0" name="Page-1">
     <mxGraphModel dx="1209" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -372,6 +372,9 @@
         </mxCell>
         <mxCell id="eQ1a93mBQXryfqyJadW8-143" value="&lt;font style=&quot;font-size: 6px&quot;&gt;Heure &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Cours &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Groupe(s) &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Salle &amp;nbsp;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="227.5" y="870" width="217" as="geometry" />
+        </mxCell>
+        <mxCell id="eQ1a93mBQXryfqyJadW8-145" value="Bienvenue sur votre emploi du temps ECE Paris" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="324" y="150" width="180" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
