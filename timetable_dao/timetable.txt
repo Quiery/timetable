@@ -1,0 +1,333 @@
+package timetable_vue;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import timetable_dao.*;
+import timetable_modele.*;
+
+
+
+public class TimeTable extends JPanel implements ActionListener {
+	private static final long serialVersionUID = 1L;
+	
+	private String semaine;
+	private JLabel[] label;
+	private JLabel[] labelDisplay;
+        private List<JMenuItem> listeSemaine;
+        private ArrayList<Integer> idseance;
+	private Graphics g;
+        private Calendar cal; 
+
+	public TimeTable() throws SQLException, ClassNotFoundException {
+		this.setPreferredSize(new Dimension(700, 500));
+		this.setBackground(Color.lightGray);
+		this.setLayout(null);
+
+		label = new JLabel[9];
+		labelDisplay = new JLabel[5];
+                
+
+		// Les jours
+		label[0] = new JLabel("Lundi");
+		label[0].setBounds(135, 70, 90, 50);
+		label[1] = new JLabel("Mardi");
+		label[1].setBounds(235, 70, 90, 50);
+		label[2] = new JLabel("Mercredi");
+		label[2].setBounds(335, 70, 90, 50);
+		label[3] = new JLabel("Jeudi");
+		label[3].setBounds(435, 70, 90, 50);
+		label[4] = new JLabel("Vendredi");
+		label[4].setBounds(535, 70, 90, 50);
+		
+		// Horaires
+		label[5] = new JLabel("08h - 10h");
+		label[5].setBounds(53, 120, 80, 70);
+		label[6] = new JLabel("10h - 12h");
+		label[6].setBounds(53, 190, 80, 70);
+		label[7] = new JLabel("13h - 15h");
+		label[7].setBounds(53, 280, 80, 70);
+		label[8] = new JLabel("15h - 17h");
+		label[8].setBounds(53, 350, 80, 70);
+		for (int i=0; i<9 ; i++) {
+			label[i].setHorizontalAlignment(SwingConstants.CENTER);
+			this.add(label[i]);
+		}
+                
+                RecupererSeance();
+                
+                
+                for(int i : idseance)
+                {
+                    Connexion co= new Connexion("timetable","root","");
+                    SeanceDao seancedao= new SeanceDao(co);
+                    Seance seance=seancedao.find(i);
+                    AfficherSeance(g,seance);
+                }
+                
+                
+                listeSemaine = new ArrayList<JMenuItem>();
+		listeSemaine.add(new JMenuItem("Nouvelle planification"));
+		listeSemaine.get(0).addActionListener(this);
+
+	}
+        
+    private void RecupererSeance() throws SQLException, ClassNotFoundException
+    {    
+        Connexion co= new Connexion("timetable","root","");
+        EtudiantDao etudiantdao=new EtudiantDao(co);
+        Etudiant etudiant=etudiantdao.find(7);
+        int idgroupe=etudiant.getId_groupe();
+        GroupeDao groupedao=new GroupeDao(co);
+        Groupe groupe=groupedao.find(idgroupe);
+        idseance= groupe.getListe_seance();
+        
+    }
+	
+    private void AfficherSeance(Graphics g, Seance seance) throws SQLException, ClassNotFoundException{
+        
+        
+        
+        g.setColor(Color.white);
+    	//super.paintComponent(g);
+    	
+    	// Lignes verticales
+        g.drawLine(130, 70, 130, 420);
+        g.drawLine(230, 70, 230, 420);
+        g.drawLine(330, 70, 330, 420);
+        g.drawLine(430, 70, 430, 420);
+        g.drawLine(530, 70, 530, 420);
+        g.drawLine(630, 70, 630, 420);
+        g.drawLine(50, 70, 50, 420);
+        
+        // Lignes horizontales
+        g.drawLine(50, 70, 630, 70);
+        g.drawLine(50, 120, 630, 120);
+        g.drawLine(50, 190, 630, 190);
+        g.drawLine(50, 260, 630, 260);
+        g.drawLine(50, 280, 630, 280);
+        g.drawLine(50, 350, 630, 350);
+        g.drawLine(50, 420, 630, 420);
+        
+        // Affichage des blocs
+        
+        long heuredebut1 = (seance.getHeure_debut()).getTime();
+        long heurefin1 = (seance.getHeure_fin()).getTime();
+        
+        int heuredebut = (int)heuredebut1/(1000*60*60)+1;
+        int heurefin = (int)heurefin1/(1000*60*60)+1;
+        
+        cal = Calendar.getInstance();
+        Date date = seance.getJour();
+        cal.setTime(date);
+        int jour=cal.get(Calendar.DAY_OF_WEEK);
+        
+        
+        	Rectangle coordJour = null;
+        	Rectangle coordHeureDebut = null;
+        	Rectangle coordHeureFin = null;
+
+        	switch (jour) {
+				case 1:
+					coordJour = label[0].getBounds();
+					break;
+					
+				case 2:
+					coordJour = label[1].getBounds();
+					break;
+					
+				case 3:
+					coordJour = label[2].getBounds();
+					break;
+					
+				case 4:
+					coordJour = label[3].getBounds();
+					break;
+					
+				case 5:
+					coordJour = label[4].getBounds();
+					break;
+	
+				default:
+					break;
+			}
+        	
+        	switch (heuredebut) {
+				case 8:
+					coordHeureDebut = label[5].getBounds();
+					break;
+					
+				case 10:
+					coordHeureDebut = label[6].getBounds();
+					break;
+					
+				case 13:
+					coordHeureDebut = label[7].getBounds();
+					break;
+					
+				case 15:
+					coordHeureDebut = label[8].getBounds();
+					break;
+	
+				default:
+					break;
+			}
+        	
+        	switch (heurefin) {
+				case 10:
+					coordHeureFin = label[5].getBounds();
+					break;
+					
+				case 12:
+					coordHeureFin = label[6].getBounds();
+					break;
+					
+				case 15:
+					coordHeureFin = label[7].getBounds();
+					break;
+					
+				case 17:
+					coordHeureFin = label[8].getBounds();
+					break;
+	
+				default:
+					break;
+			}
+        	
+        	if (coordJour != null && coordHeureDebut != null && coordHeureFin != null) {
+        		g.setColor(Color.WHITE);
+        		g.fillRect(coordJour.x, coordHeureDebut.y + 5, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+        		g.setColor(Color.GRAY);
+                        
+                        Connexion co= new Connexion("timetable","root","");
+                        int coursID = seance.getId_cours();
+                        CoursDao coursdao = new CoursDao(co);
+                        Cours cours = coursdao.find(coursID);
+                        
+                        g.drawString(cours.toString(), coordJour.x + 5, coordHeureDebut.y + 20);
+                        labelDisplay[0] = new JLabel(cours.toString());
+                        labelDisplay[0].setBounds(coordJour.x, coordHeureDebut.y + 5, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                        
+                        ArrayList<Integer> enseignantID = seance.getListe_enseignants();
+                        if(enseignantID.size()== 1)
+                        {
+                            EnseignantDao e = new EnseignantDao(co);
+                            Enseignant enseignant = e.find(enseignantID.get(0));
+                            String nomEnseignant = enseignant.getNom();
+                            g.drawString(nomEnseignant, coordJour.x + 5, coordHeureDebut.y + 20);
+                            labelDisplay[1] = new JLabel(nomEnseignant);
+                            labelDisplay[1].setBounds(coordJour.x, coordHeureDebut.y + 10, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                        
+                        }
+                        
+                        else
+                        {
+                            EnseignantDao e = new EnseignantDao(co);
+                            Enseignant enseignant = e.find(enseignantID.get(0));
+                            String nomEnseignant = enseignant.getNom();
+                            enseignant = e.find(enseignantID.get(1));
+                            String nomEnseignant2 = enseignant.getNom();       
+                            g.drawString(nomEnseignant, coordJour.x + 5, coordHeureDebut.y + 20);
+                            g.drawString(nomEnseignant2, coordJour.x + 15, coordHeureDebut.y + 20);   
+                            labelDisplay[1] = new JLabel(nomEnseignant+", "+nomEnseignant2 + "...");
+                            labelDisplay[1].setBounds(coordJour.x, coordHeureDebut.y + 10, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                        
+                        }
+                        ArrayList<Integer>groupeID=seance.getListe_groupes();
+                        if(groupeID.size() == 1)
+                        {
+                            GroupeDao groupedao = new GroupeDao(co);
+                            Groupe groupe = groupedao.find(groupeID.get(0));
+                            g.drawString(groupe.toString(), coordJour.x + 5, coordHeureDebut.y + 20);
+                            labelDisplay[2] = new JLabel(groupe.toString());
+                            labelDisplay[2].setBounds(coordJour.x, coordHeureDebut.y + 15, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                                               
+                        }
+                        else
+                        {
+                            GroupeDao groupedao = new GroupeDao(co);
+                            Groupe groupe = groupedao.find(groupeID.get(0));
+                            Groupe groupe2 = groupedao.find(groupeID.get(1));
+                            g.drawString(groupe.toString(), coordJour.x + 5, coordHeureDebut.y + 20);
+                            labelDisplay[2] = new JLabel(groupe.toString()+", "+groupe2.toString()+"...");
+                            labelDisplay[2].setBounds(coordJour.x, coordHeureDebut.y + 15, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                                               
+                        }
+                        
+                        
+                        ArrayList<Integer>salleID=seance.getListe_salles();
+                        if(salleID.size() == 1)
+                        {
+                            SalleDao s=new SalleDao(co);
+                            Salle salle=s.find(salleID.get(0));
+                            String nomSalle=salle.getNom();
+                            int siteID = salle.getId_site();
+                            SiteDao sitedao = new SiteDao(co);
+                            Site site1=sitedao.find(siteID);
+                            String site=site1.getNom();
+                            labelDisplay[3] = new JLabel(nomSalle+", "+site);
+                            labelDisplay[3].setBounds(coordJour.x, coordHeureDebut.y + 20, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                        
+                        }
+                        
+                                               
+                        else
+                        {
+                            SalleDao s=new SalleDao(co);
+                            Salle salle=s.find(salleID.get(0));
+                            String nomSalle1=salle.getNom();
+                            int siteID = salle.getId_site();
+                            SiteDao sitedao = new SiteDao(co);
+                            Site site=sitedao.find(siteID);
+                            String site1=site.getNom();
+                            salle=s.find(salleID.get(1));
+                            String nomSalle2=salle.getNom();
+                            siteID = salle.getId_site();
+                            site=sitedao.find(siteID);
+                            String site2=site.getNom();
+                            labelDisplay[3]= new JLabel(nomSalle1+", "+site1+"; "+nomSalle2+", "+site2);
+                            labelDisplay[3].setBounds(coordJour.x, coordHeureDebut.y + 20, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+                        
+                        }
+                        
+                        int coursTypeID = seance.getId_type_cours();
+                        Type_coursDao courstypedao = new Type_coursDao(co);
+                        Type_cours coursType = courstypedao.find(coursTypeID);
+                        String nom=coursType.getNom();
+                        g.drawString(nom, coordJour.x + 5, coordHeureDebut.y + 20);
+                        labelDisplay[4] = new JLabel(nom);
+                        labelDisplay[4].setBounds(coordJour.x, coordHeureDebut.y + 25, coordJour.width, coordHeureFin.y + coordHeureFin.height - coordHeureDebut.y - 10);
+
+                        
+    			this.add(labelDisplay[0]);
+    			this.add(labelDisplay[1]);
+                        this.add(labelDisplay[2]);
+                        this.add(labelDisplay[3]);
+                        this.add(labelDisplay[4]);
+                        
+    		}
+
+        }
+
+
+        @Override
+    public void actionPerformed(ActionEvent e) {
+			semaine = (String) e.getActionCommand();
+			this.updateUI();
+			this.repaint();
+	}
+}
